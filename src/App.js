@@ -9,8 +9,6 @@ import List from "./List";
 import Create from "./CreateTask";
 
 function App(props) {
-
-    console.log(props);
     return (
         <Router>
             <Link to="/">List</Link> <span>  </span>
