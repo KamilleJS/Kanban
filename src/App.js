@@ -8,7 +8,7 @@ import {
 import List from "./List";
 import Create from "./CreateTask";
 
-function App(props) {
+function App() {
     return (
         <Router>
             <Link to="/">List</Link> <span>  </span>
