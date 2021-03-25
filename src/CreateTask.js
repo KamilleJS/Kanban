@@ -70,11 +70,9 @@ function CreateTask() {
                             <option value="progress">Progress</option>
                             <option value="review">Review</option>
                             <option value="done">Done</option>
-
                         </select>
                     </div>
                 </div>
-
                 <Link to="/">
                     <button type="submit" onClick={addToList}>Save</button>
                 </Link>
