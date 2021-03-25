@@ -12,8 +12,6 @@ function List() {
     const columns = statuses.map((el) => el.status);
     const priority = [1, 2, 3, 4, 5];
 
-    console.log(statuses);
-
     const getCards = () => {
         axios.get('http://nazarov-kanban-server.herokuapp.com/card')
             .then((res) => {
@@ -42,7 +40,6 @@ function List() {
         const corrector = direction === "right" ? +1 : -1;
         const currentStatus = card.status;
         const newStatus = columns[columns.indexOf(currentStatus) + corrector];
-
         axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`, {status: newStatus})
             .then((res) => {
                 getCards();
