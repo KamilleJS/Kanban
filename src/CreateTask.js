@@ -82,7 +82,6 @@ function CreateTask() {
             </form>
         </div>
     )
-
 }
 
 export default withRouter(CreateTask)
