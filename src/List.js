@@ -71,7 +71,6 @@ function List() {
 
     return (
         <div className="container">
-            <hr/>
             <h1>Kanban</h1>
             <hr/>
             <div className="row align-items-start">
