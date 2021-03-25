@@ -1,4 +1,4 @@
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
 import './App.css';
@@ -63,7 +63,7 @@ function List() {
     };
 
     const editTask = (card) => {
-        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`, )
+        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`,)
             .then((res) => {
                 getCards();
             })
