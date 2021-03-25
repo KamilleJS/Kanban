@@ -62,6 +62,16 @@ function List() {
             })
     };
 
+    const editTask = (card) => {
+        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`, )
+            .then((res) => {
+                getCards();
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    };
+
     return (
         <div className="container">
             <h1>Kanban</h1>
@@ -74,6 +84,7 @@ function List() {
                             columns={columns}
                             priority={priority}
                             deleteTask={deleteTask}
+                            editTask={editTask}
                     />)}
             </div>
         </div>

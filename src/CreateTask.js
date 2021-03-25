@@ -19,7 +19,6 @@ function CreateTask() {
             case "description": setTaskDescription(e.target.value); break;
             case "priority": setTaskPriority(e.target.value); break;
             case "status": setTaskStatus(e.target.value); break;
-
         }
     };
 
@@ -31,7 +30,6 @@ function CreateTask() {
             priority: taskPriority,
             status: taskStatus,
         }).then((res)=> {
-
             console.log(res.data);
         })
     };
@@ -39,8 +37,7 @@ function CreateTask() {
     return (
         <div>
             <h2>Create</h2>
-
-            <form  >
+            <form >
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label"><h5>Name</h5></label>
                     <div className="col-sm-10">

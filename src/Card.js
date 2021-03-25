@@ -22,6 +22,8 @@ function Card(props) {
 
                 <button type="button" className="btn btn-outline-danger"
                         onClick={() => props.deleteTask(props.cards)}>Delete</button>
+                <button type="button" className="btn btn-outline-danger"
+                        onClick={() => props.editTask(props.cards)}>Edit</button>
             </div>
         </div>
     );

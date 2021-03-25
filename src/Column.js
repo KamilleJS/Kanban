@@ -13,6 +13,7 @@ function Column(props) {
                     columns={props.columns}
                     priority={props.priority}
                     deleteTask={props.deleteTask}
+                    editTask={props.editTask}
                 />)}
         </div>
     );
