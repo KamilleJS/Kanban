@@ -12,14 +12,20 @@ import Create from "./CreateTask";
 function App() {
     return (
         <Router>
-            <ul className="nav nav-tabs">
-                <li className="nav-item">
-                    <a className="nav-link" href="#"><Link to="/">List</Link></a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#"><Link to="/create">Create</Link></a>
-                </li>
-            </ul>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#"><Link to="/">List</Link></a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="#"><Link to="/create">Create</Link></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
             <Switch>
                 <Route path="/create">
                     <Create/>
