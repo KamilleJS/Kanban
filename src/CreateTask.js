@@ -73,10 +73,10 @@ function CreateTask() {
                     </div>
                 </div>
                 <Link to="/">
-                    <button type="submit" onClick={addToList}>Save</button>
+                    <button type="submit" className="btn btn-outline-primary" onClick={addToList}>Save</button>
                 </Link>
                 <Link to ="/" >
-                    <button>Cancel</button>
+                    <button className="btn btn-outline-primary">Cancel</button>
                 </Link>
             </form>
         </div>
