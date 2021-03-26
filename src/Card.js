@@ -16,30 +16,29 @@ function Card(props) {
                         disabled={props.cards.status === props.columns[0]}
                         onClick={() => props.nextStatus(props.cards, 'left')}>←
                 </button>
-
-                <button type="button" className="btn btn-outline-primary"
-                        disabled={props.cards.status === props.columns[props.columns.length - 1]}
-                        onClick={() => props.nextStatus(props.cards, 'right')}>→
-                </button>
-
+                {' '}
                 <button type="button" className="btn btn-outline-primary"
                         disabled={props.cards.priority === props.priority[props.priority.length-1]}
                         onClick={() => props.changePriority(props.cards._id, props.cards.priority, +1)}>↑
                 </button>
-
+                {' '}
                 <button type="button" className="btn btn-outline-primary"
                         disabled={props.cards.priority === props.priority[0]}
                         onClick={() => props.changePriority(props.cards._id, props.cards.priority, -1)}>↓
                 </button>
-
-                <button type="button" className="btn btn-outline-danger"
-                        onClick={() => props.deleteTask(props.cards)}>Delete</button>
-
+                {' '}
+                <button type="button" className="btn btn-outline-primary"
+                        disabled={props.cards.status === props.columns[props.columns.length - 1]}
+                        onClick={() => props.nextStatus(props.cards, 'right')}>→
+                </button>
+                <hr/>
                 <UpdateCardModal card={props.cards}
                                  priority={props.priority}
                                  columns={props.columns}
                                  editTask={props.editTask}
                 />
+                <button type="button" className="btn btn-outline-danger"
+                        onClick={() => props.deleteTask(props.cards)}>Delete</button>
             </div>
         </div>
     );
