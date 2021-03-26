@@ -11,6 +11,8 @@ import CreateTask from "./CreateTask";
 import axios from "axios";
 import {useState} from "react";
 
+document.body.style.backgroundColor = "floralwhite";
+
 function App() {
     const [cards, setCards] = useState([]);
 
@@ -32,10 +34,10 @@ function App() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to="/">List</Link>
-                            </li><span> </span>
+                                <Link to="/" className="link">List</Link>
+                            </li>
                             <li className="nav-item">
-                               <Link to="/create">Create</Link>
+                               <Link to="/create" className="link">Create</Link>
                             </li>
                         </ul>
                     </div>

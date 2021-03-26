@@ -11,7 +11,7 @@ function Column(props) {
 
     return (
         <div className="col text-capitalize">
-            <h3 className={`border-bottom border-6 ${colorMap[props.status.title]} pb-2`}><center>{props.status.title}</center></h3>
+            <h3 className={`border-bottom border-10 ${colorMap[props.status.title]} pb-2`}><center>{props.status.title}</center></h3>
             {props.cards
                 .filter(el => props.status.status === el.status)
                 .sort((a, b) => b.priority - a.priority)

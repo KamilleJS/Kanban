@@ -27,16 +27,16 @@ function CreateTask(props) {
 
     return (
         <div>
-            <h2>Create</h2>
-            <form >
-                <div className="row mb-3">
+            <h2 className={"create"}>Create</h2>
+            <form className={"form"}>
+                <div  className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label"><h5>Name</h5></label>
                     <div className="col-sm-10">
                         <input name="name" className="form-control" id="inputEmail3" onChange={(e) => setTaskName(e.target.value)} placeholder="Add name"/>
                     </div>
                 </div>
                 <div className="row mb-3">
-                    <label  className="col-sm-2 col-form-label"><h5>Description</h5></label>
+                    <label  className="col-sm-2 col-form-label" ><h5>Description</h5></label>
                     <div className="col-sm-10">
                         <input name="description" className="form-control" id="inputPassword3" placeholder="Add description" onChange={(e) => setTaskDescription(e.target.value)}/>
                     </div>
@@ -56,7 +56,7 @@ function CreateTask(props) {
                 <div className="row mb-3">
                     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label"><h5>Status</h5></label>
                     <div className="col-sm-10">
-                        <select value={taskStatus} name="status" className="form-select" aria-label="Default select example" onChange={(e) => setTaskStatus(e.target.value)}>
+                        <select value={taskStatus} name="status" className="form-select-sm" aria-label="Default select example" onChange={(e) => setTaskStatus(e.target.value)}>
                             <option value="to do">Todo</option>
                             <option value="progress">Progress</option>
                             <option value="review">Review</option>
