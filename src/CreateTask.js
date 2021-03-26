@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import { withRouter } from 'react-router';
-import {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CreateTask(props) {
 
@@ -11,19 +11,8 @@ function CreateTask(props) {
     const [taskPriority, setTaskPriority] = useState(1);
     const [taskStatus, setTaskStatus] = useState("to do");
 
-    const onChange = e => {
-        const name = e.target.name;
-        switch(name) {
-            case "name": setTaskName(e.target.value); break;
-            case "description": setTaskDescription(e.target.value); break;
-            case "priority": setTaskPriority(e.target.value); break;
-            case "status": setTaskStatus(e.target.value); break;
-        }
-    };
-
     const addToList = () => {
         axios.post('https://nazarov-kanban-server.herokuapp.com/card', {
-            _id: Math.random(),
             name: taskName,
             description: taskDescription,
             priority: taskPriority,
@@ -43,19 +32,19 @@ function CreateTask(props) {
                 <div className="row mb-3">
                     <label htmlFor="inputEmail3" className="col-sm-2 col-form-label"><h5>Name</h5></label>
                     <div className="col-sm-10">
-                        <input name="name" className="form-control" id="inputEmail3" onChange={onChange} placeholder="Add name"/>
+                        <input name="name" className="form-control" id="inputEmail3" onChange={(e) => setTaskName(e.target.value)} placeholder="Add name"/>
                     </div>
                 </div>
                 <div className="row mb-3">
                     <label  className="col-sm-2 col-form-label"><h5>Description</h5></label>
                     <div className="col-sm-10">
-                        <input name="description" className="form-control" id="inputPassword3" placeholder="Add description" onChange={onChange}/>
+                        <input name="description" className="form-control" id="inputPassword3" placeholder="Add description" onChange={(e) => setTaskDescription(e.target.value)}/>
                     </div>
                 </div>
                 <div className="row mb-3">
                     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label"><h5>Priority</h5></label>
                     <div className="col-sm-10">
-                        <select value={taskPriority} className="form-select" aria-label="Default select example" name="priority" onChange={onChange}>
+                        <select value={taskPriority} className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => setTaskPriority(e.target.value)}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -67,7 +56,7 @@ function CreateTask(props) {
                 <div className="row mb-3">
                     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label"><h5>Status</h5></label>
                     <div className="col-sm-10">
-                        <select value={taskStatus} name="status" className="form-select" aria-label="Default select example" onChange={onChange}>
+                        <select value={taskStatus} name="status" className="form-select" aria-label="Default select example" onChange={(e) => setTaskStatus(e.target.value)}>
                             <option value="to do">Todo</option>
                             <option value="progress">Progress</option>
                             <option value="review">Review</option>
@@ -75,8 +64,8 @@ function CreateTask(props) {
                         </select>
                     </div>
                 </div>
-                <Link to="/">
-                    <button type="submit" className="btn btn-outline-primary" onClick={addToList}>Save</button>
+                <Link to ="/" >
+                    <button className="btn btn-outline-primary" onClick={addToList}>Save</button>
                 </Link>
                 <Link to ="/" >
                     <button className="btn btn-outline-primary">Cancel</button>

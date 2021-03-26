@@ -1,3 +1,5 @@
+import UpdateCardModal from "./UpdateCardModal";
+
 function Card(props) {
 
     const {description, name, priority, status} = props.cards;
@@ -33,8 +35,11 @@ function Card(props) {
                 <button type="button" className="btn btn-outline-danger"
                         onClick={() => props.deleteTask(props.cards)}>Delete</button>
 
-                <button type="button" className="btn btn-outline-primary"
-                        onClick={() => props.editTask(props.cards)}>Edit</button>
+                <UpdateCardModal card={props.cards}
+                                 priority={props.priority}
+                                 columns={props.columns}
+                                 editTask={props.editTask}
+                />
             </div>
         </div>
     );

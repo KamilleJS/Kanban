@@ -1,6 +1,7 @@
 import './App.css';
 import {
     BrowserRouter as Router,
+    BrowserRouter,
     Switch,
     Route,
     Link
@@ -9,7 +10,6 @@ import List from "./List";
 import CreateTask from "./CreateTask";
 import axios from "axios";
 import {useState} from "react";
-
 
 function App() {
     const [cards, setCards] = useState([]);
@@ -25,16 +25,17 @@ function App() {
     };
 
     return (
+        <BrowserRouter>
         <Router>
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#"><Link to="/">List</Link></a>
-                            </li>
+                                <Link to="/">List</Link>
+                            </li><span> </span>
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="#"><Link to="/create">Create</Link></a>
+                               <Link to="/create">Create</Link>
                             </li>
                         </ul>
                     </div>
@@ -49,6 +50,7 @@ function App() {
                 </Route>
             </Switch>
         </Router>
+        </BrowserRouter>
     );
 }
 

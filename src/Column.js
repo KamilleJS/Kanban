@@ -14,6 +14,7 @@ function Column(props) {
             <h3 className={`border-bottom border-6 ${colorMap[props.status.title]} pb-2`}><center>{props.status.title}</center></h3>
             {props.cards
                 .filter(el => props.status.status === el.status)
+                .sort((a, b) => b.priority - a.priority)
                 .map(el => <Card
                     cards={el}
                     key={el._id}

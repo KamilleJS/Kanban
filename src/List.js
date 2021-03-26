@@ -49,7 +49,7 @@ function List(props) {
     };
 
     const editTask = (card) => {
-        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`,)
+        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`, {...card})
             .then((res) => {
                 props.getCards();
             })
