@@ -71,7 +71,7 @@ function List() {
 
     return (
         <div className="container">
-            <h1>Kanban</h1>
+            <center><h1>Kanban</h1></center>
             <hr/>
             <div className="row align-items-start">
                 {statuses.map(el =>
