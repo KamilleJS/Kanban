@@ -5,22 +5,11 @@ import './App.css';
 import {useState, useEffect} from "react";
 import Column from "./Column";
 
-function List() {
+function List(props) {
 
     const [statuses, setStatuses] = useState([]);
-    const [cards, setCards] = useState([]);
     const columns = statuses.map((el) => el.status);
     const priority = [1, 2, 3, 4, 5];
-
-    const getCards = () => {
-        axios.get('http://nazarov-kanban-server.herokuapp.com/card')
-            .then((res) => {
-                setCards(res.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    };
 
     useEffect(() => {
         axios.get('http://nazarov-kanban-server.herokuapp.com/column')
@@ -33,7 +22,7 @@ function List() {
     }, []);
 
     useEffect(() => {
-        getCards();
+        props.getCards();
     }, []);
 
     const nextStatus = (card, direction) => {
@@ -42,7 +31,7 @@ function List() {
         const newStatus = columns[columns.indexOf(currentStatus) + corrector];
         axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`, {status: newStatus})
             .then((res) => {
-                getCards();
+                props.getCards();
             })
             .catch((error) => {
                 console.log(error);
@@ -52,7 +41,7 @@ function List() {
     const deleteTask = (card) => {
         axios.delete(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`)
             .then((res) => {
-                getCards();
+                props.getCards();
             })
             .catch((error) => {
                 console.log(error);
@@ -62,7 +51,17 @@ function List() {
     const editTask = (card) => {
         axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${card._id}`,)
             .then((res) => {
-                getCards();
+                props.getCards();
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    };
+
+    const changePriority = (cardId, priority, value) => {
+        axios.patch(`http://nazarov-kanban-server.herokuapp.com/card/${cardId}`, {priority: priority + value})
+            .then((res) => {
+                props.getCards();
             })
             .catch((error) => {
                 console.log(error);
@@ -77,12 +76,14 @@ function List() {
                 {statuses.map(el =>
                     <Column key={el._id}
                             status={el}
-                            cards={cards}
+                            cards={props.cards}
                             nextStatus={nextStatus}
                             columns={columns}
                             priority={priority}
                             deleteTask={deleteTask}
                             editTask={editTask}
+                            getCards={props.getCards}
+                            changePriority={changePriority}
                     />)}
             </div>
         </div>

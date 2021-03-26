@@ -6,10 +6,24 @@ import {
     Link
 } from "react-router-dom";
 import List from "./List";
-import Create from "./CreateTask";
+import CreateTask from "./CreateTask";
+import axios from "axios";
+import {useState} from "react";
 
 
 function App() {
+    const [cards, setCards] = useState([]);
+
+    const getCards = () => {
+        axios.get('http://nazarov-kanban-server.herokuapp.com/card')
+            .then((res) => {
+                setCards(res.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    };
+
     return (
         <Router>
             <nav className="navbar navbar-expand-sm navbar-light bg-light">
@@ -28,10 +42,10 @@ function App() {
             </nav>
             <Switch>
                 <Route path="/create">
-                    <Create/>
+                    <CreateTask getCards={getCards}/>
                 </Route>
                 <Route path="/">
-                    <List/>
+                    <List getCards={getCards} cards={cards} setCards={setCards}/>
                 </Route>
             </Switch>
         </Router>

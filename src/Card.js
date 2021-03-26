@@ -9,19 +9,30 @@ function Card(props) {
                 <h6 className="card-subtitle mb-2 text-muted">{status}</h6>
                 <p className="card-text">{description}</p>
                 <p className="card-text">Priority: {priority}</p>
+
                 <button type="button" className="btn btn-outline-primary"
                         disabled={props.cards.status === props.columns[0]}
                         onClick={() => props.nextStatus(props.cards, 'left')}>←
                 </button>
+
                 <button type="button" className="btn btn-outline-primary"
                         disabled={props.cards.status === props.columns[props.columns.length - 1]}
                         onClick={() => props.nextStatus(props.cards, 'right')}>→
                 </button>
-                <button type="button" className="btn btn-outline-primary">↑</button>
-                <button type="button" className="btn btn-outline-primary">↓</button>
+
+                <button type="button" className="btn btn-outline-primary"
+                        disabled={props.cards.priority === props.priority[props.priority.length-1]}
+                        onClick={() => props.changePriority(props.cards._id, props.cards.priority, +1)}>↑
+                </button>
+
+                <button type="button" className="btn btn-outline-primary"
+                        disabled={props.cards.priority === props.priority[0]}
+                        onClick={() => props.changePriority(props.cards._id, props.cards.priority, -1)}>↓
+                </button>
 
                 <button type="button" className="btn btn-outline-danger"
                         onClick={() => props.deleteTask(props.cards)}>Delete</button>
+
                 <button type="button" className="btn btn-outline-primary"
                         onClick={() => props.editTask(props.cards)}>Edit</button>
             </div>

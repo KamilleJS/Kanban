@@ -4,7 +4,7 @@ import {useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-function CreateTask() {
+function CreateTask(props) {
 
     const [taskName, setTaskName]= useState('');
     const [taskDescription, setTaskDescription] = useState('');
@@ -30,6 +30,9 @@ function CreateTask() {
             status: taskStatus,
         }).then((res)=> {
             console.log(res.data);
+            props.getCards();
+        }).catch((err) => {
+            console.log(err);
         })
     };
 
