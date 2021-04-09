@@ -1,7 +1,6 @@
 import UpdateCardModal from "./UpdateCardModal";
 
 function Card(props) {
-
     const {description, name, priority, status} = props.cards;
 
     return (

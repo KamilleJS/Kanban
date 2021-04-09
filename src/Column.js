@@ -1,7 +1,6 @@
 import Card from "./Card";
 
 function Column(props) {
-
     const colorMap = {
         todo: 'border-secondary',
         progress: 'border-primary',

@@ -6,7 +6,6 @@ import {useState, useEffect} from "react";
 import Column from "./Column";
 
 function List(props) {
-
     const [statuses, setStatuses] = useState([]);
     const columns = statuses.map((el) => el.status);
     const priority = [1, 2, 3, 4, 5];
